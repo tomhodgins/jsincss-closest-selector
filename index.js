@@ -1,11 +1,10 @@
 export default (selector, ancestor, rule) => {
 
-  let styles = ''
-  let count = 0
+  return Array.from(document.querySelectorAll(selector))
 
-  Array.from(document.querySelectorAll(selector))
     .filter(tag => tag.closest(ancestor))
-    .forEach(tag => {
+
+    .reduce((styles, tag, count) => {
 
       const attr = (selector+ancestor).replace(/\W/g, '')
 
@@ -13,8 +12,8 @@ export default (selector, ancestor, rule) => {
       styles += `${ancestor}[data-closest-${attr}="${count}"] { ${rule} }\n`
       count++
 
-    })
+      return styles
 
-  return styles
+    }, '')
 
 }
