@@ -1,4 +1,4 @@
-module.exports = (selector, ancestor, rule) => {
+export default (selector, ancestor, rule) => {
 
   return Array.from(document.querySelectorAll(selector))
 

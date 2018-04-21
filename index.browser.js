@@ -1,4 +1,4 @@
-module.exports = (selector, ancestor, rule) => {
+function closest(selector, ancestor, rule) {
 
   return Array.from(document.querySelectorAll(selector))
 
