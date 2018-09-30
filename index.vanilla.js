@@ -10,8 +10,6 @@ export default (selector, ancestor, rule) => {
 
       tag.closest(ancestor).setAttribute(`data-closest-${attr}`, count)
       styles += `${ancestor}[data-closest-${attr}="${count}"] { ${rule} }\n`
-      count++
-
       return styles
 
     }, '')
